@@ -1,13 +1,57 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hamburger {
+    transition: all 0.25s;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.hamburger > span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background-color: black;
+    transform: rotate(0);
+    transition: all 0.5s;
+}
+
+.hamburger > span:nth-child(2){
+    transform: translateY(7px);
+}
+
+.hamburger > span:last-child{
+    transform: translateY(14px);
+}
+
+.hamburger.open {
+    transform: rotate(90deg) translateY(0px);
+}
+
+.hamburger.open > span:first-child {
+    transform: rotate(45deg) translateY(6px) translate(6px)
+}
+
+.hamburger.open > span:nth-child(2) {
+   display: none;
+}
+
+.hamburger.open > span:last-child {
+    transform: rotate(-45deg) translateY(6px) translate(-6px)
+}
+
+.swiper-pagination {
+    display: block;
+}
+
+@media (min-width: 768px ) {
+    .swiper-pagination {
+        display:none;
+    }
+}
+
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    background-color: hsl(12, 88%, 59%);
+    border: 1px solid hsl(12, 88%, 59%) !important;
 }
